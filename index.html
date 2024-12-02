@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <!-- CSS BOOTSTRAP CONNECTION  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.css" class="ref">
+    
+
+</head>
+
+
+<body class="Body" style="background-image: url('image/img3.jpg');">
+
+  <!-- USER LOGIN FORM  -->
+ <div class="contaner">
+  
+  <div id="userLoginFormContainer">
+    <div class="loginbg position-absolute top-50 start-50 translate-middle">
+        <div class="mb-1 pt-2">
+          <div class="con d-inline-flex">
+          <input type="radio" id="switchToAdminLogin" class="btn btn-primary"></input>
+          <label for="switchToAdminLogin">Switch to Admin Login</label>
+        </div>
+            <h2 class="text-center">User Log In</h2>
+            <form class="logfrm" id="loginForm">
+              <label for="exampleInputusername" class="form-label">Username</label>
+              <input type="text" class="form-control border-dark" placeholder="Enter Username" id="loginUsername" required>
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control border-dark" placeholder="Enter Password" id="LoginPassword" required>
+              <div id="emailHelp" class="form-text">You Don't Have An Account? <a href="#" data-bs-toggle="modal" data-bs-target="#mdlregistration">Regester here!!!</a> </div>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3">Login</button>
+          </form>
+            
+        </div>
+    </div>
+    
+    <!-- ADMIN LOGIN FORM  -->
+    <div id="adminLoginFormContainer" style="display: none;">
+      <div class="loginbg position-absolute top-50 start-50 translate-middle">
+        <div class="mb-2 pt-2">
+          <div class="con d-inline-flex">
+          <input type="radio" id="switchToUserLogin" class="btn btn-primary"></input>
+          <label for="switchToUserLogin">Switch to User Login</label>
+        </div>
+          <h2 class="text-center">Admin Log In</h2>
+          <form class="logfrm" id="AdloginForm">
+            <div class="mb-3">
+            <label for="loginAdminUsername" class="form-label">Admin Username</label>
+            <input type="text" class="form-control border-dark" placeholder="Enter Admin Username" id="loginAdminUsername" required>
+          </div>
+            <div class="mb-3">
+              <label for="LoginAdminPassword" class="form-label">Admin Password</label>
+              <input type="password" class="form-control border-dark" placeholder="Enter Admin Password" id="LoginAdminPassword" required>
+              </div>
+              <button type="submit" class="btn btn-primary mb-3">Login</button>
+              
+            </form>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+ <!-- EDIT BOOKING MODAL  -->
+<div class="modal fade" id="mdlregistration" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="mdlregistrationLabel" aria-hidden="true">
+  <form id="frmEditclient">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="mdlregistrationLabel">Edit Booking</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- FORM FOR EDITING DATA TO THE TABLE -->
+
+        <div class="mb-3">
+          <label class="form-label" for="regesterfname">First Name:</label>
+          <input type="text" class="form-control" id="regesterfname" required>
+      </div>
+      <div class="mb-3">
+          <label class="form-label" for="regesterlname">Last Name:</label>
+          <input type="text" class="form-control" id="regesterlname" required>
+      </div>
+      <div class="mb-3">
+          <label class="form-label" for="regesterUserName">Username:</label>
+          <input type="text" class="form-control" id="regesterUserName" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="regesterPassword">Password:</label>
+        <input type="text" class="form-control" id="regesterPassword" required>
+    </div>
+  </div>
+     <!-- EDIT MODAL CLOSING & SAVE BUTTON  -->
+     <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-primary">Regester</button>
+    </div>
+  
+</div>
+  </div>
+</form>
+  </div>
+
+
+  <!-- JAVA SCRIPT FILES CONNECTION -->
+  <script src="js/jquery.min.js"></script>
+  <script src="bootstrap/bootstrap.bundle.js"></script>
+  <script src="js/index.js"></script>
+</body>
+<script>
+  // THE FUNCTION OF ADD DATA BUTTON TO SUBMIT DATA 
+  $("#frmEditclient").submit(function (e) {
+    e.preventDefault(); 
+    saveClient();
+  });
+
+
+  document.getElementById('switchToUserLogin').addEventListener('click', function () {
+    document.getElementById('userLoginFormContainer').style.display = 'block';
+    document.getElementById('adminLoginFormContainer').style.display = 'none';
+    document.getElementById('switchToUserLogin').style.display = 'none';
+    document.getElementById('switchToAdminLogin').style.display = 'block';
+});
+
+document.getElementById('switchToAdminLogin').addEventListener('click', function () {
+    document.getElementById('userLoginFormContainer').style.display = 'none';
+    document.getElementById('adminLoginFormContainer').style.display = 'block';
+    document.getElementById('switchToUserLogin').style.display = 'block';
+    document.getElementById('switchToAdminLogin').style.display = 'none';
+});
+
+</script>
+</html>
+

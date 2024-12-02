@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <!-- CSS BOOTSTRAP CONNECTION  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.css" class="ref">
+    
+    
+
+</head>
+
+
+<body>
+  <!-- ROW IS USED TO DIVIDE THE SECTION OF THE SCREEN INTO TWO  -->
+  <div class="row">
+    <!-- COL IS USED TO CLASIFY THE SIZE OF EACH DIVIDED SECTION -->
+    <div class="col-md-3 bg-secondary">
+    
+      <!-- PROFILE SECTION  -->
+      <div class="upper">
+      <div class="profile d-none d-md-grid text-white mt-4 justify-content-center ">
+      <img src="image/png.png" alt="Logo1" width="100px" height="100px" style="border-radius: 50%;"class="png">
+      <h2>Admin</h2>
+  </div>
+</div> 
+
+<nav class="navbar navbar-expand-lg bg-secondary" >
+  <div class="container-fluid">
+    <img src="image/png.png" alt="Logo1" width="40px" height="40px" style="border-radius: 50%;"class="png d-md-none">
+    <h2 class="d-md-none text-white">Admin</h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- NAVIGATION LINKS SECTION  -->
+      <div class="nav flex-column">
+          <a class="custom-link" href="bookingRecords.html"><img class="bg-light border border-dark rounded-1 ms-1" src="icon/table.svg" alt="table" width="28" height="28">&emsp;Table</a>
+          <a class="custom-link" href="index.html"><img class="bg-light border border-dark rounded-1 ms-1" src="icon/pencil-square.svg" alt="edit" width="28" height="28">&emsp;Edit Booking Info</a>
+                 <!-- OFFCANVAS BUTTON  -->
+          <a class="custom-link" href="addAdmin.html"><img class="bg-light border border-secondary rounded-1 ms-1" src="icon/person-plus.svg" alt="edit" width="28" height="28">&emsp; Admin Accounts</a>
+          <a class="custom-link" href="#" id="logout"><img class="bg-light border border-dark rounded-1 ms-1" src="icon/door-open.svg" alt="edit" width="28" height="28">&emsp;Logout</a>
+
+          
+          
+      </div>
+  
+        </div>
+        
+  </div>
+    </nav>
+  </div>
+
+<!-- COL IS USED TO CLASIFY THE SIZE OF EACH DIVIDED SECTION -->
+<div class="col-md-9">
+    <div class="title mt-4">
+        <h1 class="ms-5 mb-3 text-center"> Current Booking Data </h1>
+
+    </div>
+
+
+    <div class="container">
+ 
+    <!-- DATA TABLE -->
+    <table class="table table-hover mt-4 ms-5" style="width: 90%;">
+      <button type="button" class="btn btn-outline-secondary ms-5 fs-5 text-dark fw-semibold" data-bs-toggle="offcanvas" data-bs-target="#addBookingoffcanvas" aria-controls="offcanvasRight"> <img class="bg-light border border-dark rounded-1 ms-1" src="icon/file-earmark-plus.svg" alt="add" width="28" height="28">&nbsp; Add Booking</button>
+      <thead class="table-primary">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col"> Time Arrival</th>
+          <th scope="col"> Date Arrival </th>
+          <th scope="col"> No. of Guests</th>
+          <th scope="col">Contact No.</th>
+          <th scope="col">Accommodation</th>
+          <th scope="col">Time/Date of booking</th>
+          <th class="col">Action</th>
+        </tr>
+      </thead>
+      <tbody class="table-secondary" id="tbDisplayBooking"></tbody>
+    </table>
+  </div>
+
+        <!-- DATA COTTAGE TABLE -->
+<div class="container">
+  <table class="table table-hover mt-4 ms-5" style="width: 80%;">
+    <button type="button" class="btn btn-outline-secondary ms-5 fs-5 mt-4 text-dark fw-semibold" data-bs-toggle="offcanvas" data-bs-target="#addCottageoffcanvas" aria-controls="offcanvasRight"> <img class="bg-light border border-dark rounded-1 " src="icon/file-earmark-plus.svg" alt="add" width="28" height="28">&nbsp; Add Cottage</button>
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Pax</th>
+        <th scope="col">Type</th>
+        <th scope="col"> Rate </th>
+        <th scope="col"> Avalability </th>
+        <th scope="col"> Action </th>
+
+      </tr>
+    </thead>
+    <tbody class="table-secondary" id="tbDisplayCottage5"></tbody>
+    </table>
+  </div>
+  
+  
+
+    <!-- ADD BOOKING OFFCANVAS -->
+    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="addBookingoffcanvas" aria-labelledby="offcanvasRightLabel">
+      <form id="frmAddBooking">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="addBookingoffcanvasLabel">Add Booking</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body">
+                
+                <!-- FORM FOR ADDING DATA TO THE TABLE -->
+                <div class="mb-3">
+                  <label class="form-label" for="inputfname">First Name:</label>
+                  <input type="text" class="form-control" id="inputfname" placeholder="Insert First Name" required>
+              </div>
+              <div class="mb-3">
+                  <label class="form-label" for="inputlname">Last Name:</label>
+                  <input type="text" class="form-control" id="inputlname" placeholder="Insert Last Name" required>
+              </div>
+              
+              <div class="row mb-3" style="height: fit-content;">
+              <div class="col-md-6">
+                  <label class="form-label" for="inputTime">Time Arrival:</label>
+                  <input type="time" class="form-control" id="inputTime" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="inputDate">Date Arrival:</label>
+                <input type="date" class="form-control" id="inputDate" required>
+            </div>
+          </div>
+
+          <div class="row" style="height: fit-content;">
+            <div class="col-md-5 mb-3">
+                <label class="form-label" for="inputGuestNo">No. of Guest:</label>
+                <input type="number" class="form-control" id="inputGuestNo" min="1" max="100" placeholder="0" required>
+            </div>
+            <div class="col-md-7 mb-3">
+                <label class="form-label" for="inputContact">Contact No.:</label>
+                <input type="text" class="form-control" id="inputContact" placeholder="+63" required>
+            </div>
+            <div class="col-md-7 mb-3">
+              <label class="form-label" for="inputAcmo">Accommodation:</label>
+              <input type="text" class="form-control" id="inputAcmo" placeholder="Enter Accommodation Name" required>
+          </div>
+              </div>
+      
+               <!-- OFFCANVAS CLOSING & SAVE BUTTON  -->
+              <div class="footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas">Close</button>
+                <button type="submit" class="btn btn-primary">Add Data</button>
+              </div>
+            </div>
+          </form>
+      </div>
+
+
+
+      <!-- ADD COTTAGE OFFCANVAS -->
+    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="addCottageoffcanvas" aria-labelledby="offcanvasRightLabel">
+      <form id="frmAddCottage">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="addCottageoffcanvasLabel">Add Cottage</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body">
+                
+                <!-- FORM FOR ADDING DATA TO THE TABLE -->
+
+                <div class="mb-3 text-center">
+                  <label class="form-label" for="inputimage" name="inputimage">Insert Image:</label>
+                  <input type="file" class="form-control" id="inputimage">
+              </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="inputcottage">Cottage Name:</label>
+                  <input type="text" class="form-control" id="inputcottage" placeholder="Insert First Name" required>
+              </div>
+              <div class="mb-3">
+                  <label class="form-label" for="inputpax">Max Pax No.: </label>
+                  <input type="number" class="form-control" id="inputpax" placeholder="Insert Last Name" required>
+              </div>
+              
+              <div class="row mb-3" style="height: fit-content;">
+              <div class="col-md-6">
+
+                <label class="form-label" for="inputtype">Cottage Type:</label>
+                  <input type="text" class="form-control" id="inputtype" placeholder="Insert Cottage Type" required>
+
+              </div>
+              <div class="col-md-6">
+
+                <label class="form-label" for="inputRate">Rate:</label>
+                <input type="text" class="form-control" id="inputRate" placeholder="Enter Rate" required>
+
+            </div>
+          </div>
+          </div>
+      
+               <!-- OFFCANVAS CLOSING & SAVE BUTTON  -->
+              <div class="footer">
+                <button type="button" class="btn btn-secondary ms-3" data-bs-dismiss="offcanvas">Close</button>
+                <button type="submit" class="btn btn-primary">Add Data</button>
+              </div>
+            </form>
+            </div>
+      
+            
+            <div class="container">
+              <!-- EDIT COTTAGE MODAL  -->
+          <div class="modal fade" id="editCottageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editCottageModalLabel" aria-hidden="true">
+            <form id="frmEditCottage">
+            <div class="modal-dialog">
+              <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="mdlEditCottageLabel">Edit Accommodation</h1>
+                  <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  
+                  <!-- FORM FOR EDITING DATA TO THE TABLE -->
+          
+                  <div class="mb-3">
+                    <label class="form-label" for="inputEditcotname">Cottage Name:</label>
+                    <input type="hidden" class="form-control" id="inputEditID">
+                    <input type="text" class="form-control" id="inputEditcotname" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="inputEditpax">Max Pax No.: </label>
+                    <input type="number" class="form-control" id="inputEditpax" required>
+                </div>
+          
+                <div class="row " style="height: fit-content;">
+                <div class="col-md-6">
+                  <label class="form-label" for="inputEditType">Cottage Type:</label>
+                  <input type="text" class="form-control" id="inputEditType" required>
+                </div>
+                <div class="col-md-6 mb-3" >
+                  <label class="form-label" for="inputrate">Rate:</label>
+                    <input type="number" class="form-control" id="inputrate" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="inputEditAvail">Avalability: </label>
+              <input type="text" class="form-control" id="inputEditAvail" required>
+          </div>
+            </div>
+          
+                 <!-- EDIT MODAL CLOSING & SAVE BUTTON  -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Update data</button>
+                </div>
+              </div>
+            </form>
+            </div>
+            </div>
+
+   
+
+<!-- EDIT BOOKING MODAL  -->
+<div class="container">
+  <div class="modal fade" id="editBookingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editBookingModalLabel" aria-hidden="true">
+    <form id="frmEditBooking">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="mdlEditBookingLabel">Edit Booking</h1>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <!-- FORM FOR EDITING DATA TO THE TABLE -->
+
+          <div class="mb-3">
+            <label class="form-label" for="inputfname">First Name:</label>
+            <input type="hidden" class="form-control" id="inputEditID">
+            <input type="text" class="form-control" id="inputEditfname" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="inputlname">Last Name:</label>
+            <input type="text" class="form-control" id="inputEditlname" required>
+        </div>
+
+        <div class="row " style="height: fit-content;">
+        <div class="col-md-6">
+            <label class="form-label" for="inputTime">Time of Arrival:</label>
+            <input type="time" class="form-control" id="inputEditTime" required>
+        </div>
+        <div class="col-md-6 mb-3" >
+          <label class="form-label" for="inputDate">Date of Arrival:</label>
+          <input type="date" class="form-control" id="inputEditDate" required>
+      </div>
+    </div>
+
+    <div class="row" style="height: fit-content;">
+      <div class="col-md-4">
+          <label class="form-label" for="inputGuestNo">No. of Guest:</label>
+          <input type="number" class="form-control" id="inputEditGuestNo" required>
+      </div>
+      <div class="col-md-4 mb-3">
+          <label class="form-label" for="inputContact">Contact No.:</label>
+          <input type="text" class="form-control" id="inputEditContact" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label class="form-label" for="inputEditAccommodation">Accommodation:</label>
+        <input type="text" class="form-control" id="inputEditAccommodation" required>
+    </div>
+    </div>
+    
+        
+
+         <!-- EDIT MODAL CLOSING & SAVE BUTTON  -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Update data</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+  </div>
+
+
+
+
+
+
+  <!-- JAVA SCRIPT FILES CONNECTION -->
+  <script src="js/jquery.min.js"></script>
+  <script src="bootstrap/bootstrap.bundle.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
+
+<script>
+  // THE FUNCTION OF ADD DATA BUTTON TO SUBMIT DATA 
+    $("#frmAddBooking").submit(function (e) {
+    e.preventDefault(); 
+    saveBooking();
+  
+  });
+  // THE FUNCTION OF EDIT DATA BUTTON TO SUBMIT DATA 
+  $("#frmEditBooking").submit(function (e) {
+    e.preventDefault();
+    updateBooking();
+  });
+
+  // THE FUNCTION OF ADD DATA BUTTON TO SUBMIT DATA 
+$("#frmAddCottage").submit(function (e) {
+    e.preventDefault(); 
+    saveCottage();
+  
+  });
+  $("#frmEditCottage").submit(function (e) {
+    e.preventDefault();
+    updateCottage();
+  });
+
+  $(document).ready(function () {
+    // Handle the logout button click
+    $("#logout").click(function (e) {
+        e.preventDefault();
+        
+        // Perform any logout-related actions here, such as clearing user session data if used.
+        
+        // Redirect to the login form in index.html
+        window.location.href = "index.html";
+    });
+});
+</script>

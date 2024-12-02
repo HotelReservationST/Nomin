@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard</title>
+     <!-- CSS BOOTSTRAP CONNECTION  -->
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="bootstrap/bootstrap.css" class="ref">
+</head>
+<body class="Body" style="background-image: url('image/bc1.jpg'); ">
+
+
+    <button class="btn btn-secondary mt-5" style="margin-left: 8%;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasmenu" aria-controls="offcanvasRight"><img src="icon/list.svg" alt="menu" width="25" height="25" class="im bg-light border rounded-1" ></button>
+
+<div class="offcanvas offcanvas-start bg-secondary text-white" tabindex="-1" id="offcanvasmenu" aria-labelledby="offcanvasmenuLabel">
+  <div class="offcanvas-header" style="border-bottom: solid white;">
+    <h2 class="offcanvas-title ms-4" id="offcanvasmenuLabel"> Menu</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="nav flex-column">
+    <a a class="custom-link" href="#" data-bs-toggle="modal" data-bs-target="#seebooking"><img class="bg-light border border-dark rounded-1 ms-1" src="icon/table.svg" alt="edit" width="28" height="28">&emsp;View Booking</a>
+    <a class="custom-link" href="#" id="logout"><img class="bg-light border border-dark rounded-1 ms-1" src="icon/door-open.svg" alt="edit" width="28" height="28">&emsp;Logout</a>
+</div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="seebooking" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="seebookingLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width: 60%;">
+    <div class="modal-content bg-secondary">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5 text-white" id="seebookingLabel">Booking</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+ 
+          <!-- DATA TABLE -->
+          <table class="table table-hover mt-4 ms-2">
+            <thead class="table-success">
+              <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col"> Booked Time </th>
+                <th scope="col"> Booked Date </th>
+                <th scope="col"> No. of Guests</th>
+                <th scope="col">Contact No.</th>
+                <th scope="col">Accommodation</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody class="table-secondary" id="tbDisplayBooking2"></tbody>
+          </table>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <div class="container">
+        <div class="sldimg"  style="height: 10%; width: 80%;" >
+        <div class="sldpic " style="margin-left: 25%; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+        padding: 20px;">
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner" >
+          <div class="carousel-item active" >
+            <img src="image/img5.jpg" class="d-block w-100" alt="sand">
+          </div>
+          <div class="carousel-item">
+            <img src="image/img4.jpg" class="d-block w-100" alt="view">
+          </div>
+          <div class="carousel-item">
+            <img src="image/img7.jpg" class="d-block w-100" alt="rock">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+</div>
+</div>
+
+
+<!-- DATA TABLE -->
+<div class="container">
+    <div class="tb">
+<table class="table table-hover mt-4 ms-5" style="width: 70%;">
+    <button type="button" class="btn btn-outline-light ms-5 fs-5 mt-4 text-dark fw-semibold" data-bs-toggle="offcanvas" data-bs-target="#addBookingoffcanvas" aria-controls="offcanvasRight"> <img class="bg-light border border-dark rounded-1 " src="icon/file-earmark-plus.svg" alt="add" width="28" height="28">&nbsp; Book Now!!!</button>
+    <thead class="table-danger">
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Pax</th>
+        <th scope="col">Type</th>
+        <th scope="col"> Rate </th>
+      </tr>
+    </thead>
+    <tbody class="table-secondary" id="tbDisplayCottage6"></tbody>
+</table>
+</div>
+</div>
+
+
+
+  <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="addBookingoffcanvas" aria-labelledby="addBookingoffcanvasLabel" style="width: 70%; height: fit-content;">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="addBookingoffcanvasLabel">Send Booking</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="row">
+        <div class="col-md-6">
+          
+            <div class="offcanvas-body">
+                      <form id="frmAddBooking">
+                      <!-- FORM FOR ADDING DATA TO THE TABLE -->
+                      <div class="mb-3">
+                        <label class="form-label" for="inputfname">First Name:</label>
+                        <input type="text" class="form-control" id="inputfname" placeholder="Insert First Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="inputlname">Last Name:</label>
+                        <input type="text" class="form-control" id="inputlname" placeholder="Insert Last Name" required>
+                    </div>
+                    
+                    <div class="row mb-3" style="height: fit-content;">
+                    <div class="col-md-6">
+                        <label class="form-label" for="inputTime">Time Arrival:</label>
+                        <input type="time" class="form-control" id="inputTime" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="inputDate">Date Arrival:</label>
+                      <input type="date" class="form-control" id="inputDate" required>
+                  </div>
+                </div>
+          
+                <div class="row" style="height: fit-content;">
+                  <div class="col-md-4 mb-3">
+                      <label class="form-label" for="inputGuestNo">No. of Guest:</label>
+                      <input type="number" class="form-control" id="inputGuestNo" min="1" max="100" placeholder="0" required>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                      <label class="form-label" for="inputContact">Contact No.:</label>
+                      <input type="text" class="form-control" id="inputContact" placeholder="+63" required>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label" for="inputAcmo">Accommodation:</label>
+                    <input type="text" class="form-control" id="inputAcmo" placeholder="Enter Accommodation Name" required>
+                </div>
+                    </div>
+            
+                     <!-- OFFCANVAS CLOSING & SAVE BUTTON  -->
+                    <div class="footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas">Close</button>
+                      <button type="submit" class="btn btn-primary">Add Data</button>
+                    </div>
+                  </div>
+                </form>
+
+        </div>
+        <div class="col-md-6">
+          <h2>Accommodation</h2>
+          <table class="table table-hover mt-4">
+            <thead class="table-danger">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Pax</th>
+                <th scope="col">Type</th>
+                <th scope="col"> Rate </th>
+                <th scope="col"> Avalability </th>
+              </tr>
+            </thead>
+            <tbody class="table-secondary" id="tbDisplayCottage4"></tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+        <!-- JAVA SCRIPT FILES CONNECTION -->
+  <script src="js/jquery.min.js"></script>
+  <script src="bootstrap/bootstrap.bundle.js"></script>
+  <script src="js/index.js"></script>
+</body>
+<script>
+      $("#frmEditBooking").submit(function (e) {
+    e.preventDefault();
+    updateBooking();
+  });
+    // THE FUNCTION OF ADD DATA BUTTON TO SUBMIT DATA 
+    $("#frmAddBooking").submit(function (e) {
+    e.preventDefault(); 
+    saveBooking();
+  
+  });
+
+  $(document).ready(function () {
+    // Handle the logout button click
+    $("#logout").click(function (e) {
+        e.preventDefault();
+        
+        // Perform any logout-related actions here, such as clearing user session data if used.
+        
+        // Redirect to the login form in index.html
+        window.location.href = "index.html";
+    });
+});
+
+
+</script>
+</html>
